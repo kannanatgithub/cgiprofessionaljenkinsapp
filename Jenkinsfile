@@ -11,6 +11,11 @@ pipeline {
         sh 'bash ./jenkins/scripts/cleanup-images.sh'
       }
     }
+    stage('Push Images') {
+      steps {
+        sh 'bash ./jenkins/scripts/push-images.sh'
+      }
+    }
   }
   environment {
     DOCKER_HUB_USER = 'kannanatdocker'
