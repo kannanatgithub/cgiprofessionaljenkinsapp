@@ -6,6 +6,11 @@ pipeline {
         sh 'bash ./jenkins/scripts/prepare-image.sh'
       }
     }
+    stage('Clean Images') {
+      steps {
+        sh 'bash ./jenkins/scripts/cleanup-images.sh'
+      }
+    }
   }
   environment {
     DOCKER_HUB_USER = 'kannanatdocker'
