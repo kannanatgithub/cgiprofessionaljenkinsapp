@@ -21,10 +21,17 @@ pipeline {
         sh 'bash ./jenkins/scripts/run-container.sh'
       }
     }
-    stage('') {
+    stage('Clean Container') {
       steps {
         input(message: 'Completed testing locally?', ok: 'Yes')
         sh 'bash ./jenkins/scripts/cleanup-containers.sh'
+      }
+    }
+    stage('AWS Deploy') {
+      steps {
+        emailext(subject: '${JOB_NAME} - ${BUILD_ID} - Approval Task', body: '{BUILD_URL}')
+        input(message: 'Continue?', ok: 'Yes')
+        sh 'bash ./jenkins/scripts/aws-deploy.sh'
       }
     }
   }
