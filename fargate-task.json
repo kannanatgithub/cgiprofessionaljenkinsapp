@@ -4,7 +4,7 @@
     "containerDefinitions": [
         {
             "name": "restservices", 
-            "image": "kannanatdocker/cgiprofessionaljenkinsapp:latest", 
+            "image": "kannanatdocker/cgiprofessionalnetcoreservicesjenkins:latest", 
             "portMappings": [
                 {
                     "containerPort": 80, 
