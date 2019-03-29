@@ -1,4 +1,4 @@
-aws ecs create-cluster --sydney-cluster1 ${CLUSTER_NAME} --region ap-southeast-2
+aws ecs create-cluster --cluster-name ${CLUSTER_NAME} --region ap-southeast-2
 
 aws ecs register-task-definition --cli-input-json file://fargate-task.json --region ap-southeast-2
 
