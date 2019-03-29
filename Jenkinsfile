@@ -21,6 +21,12 @@ pipeline {
         sh 'bash ./jenkins/scripts/run-container.sh'
       }
     }
+    stage('') {
+      steps {
+        input(message: 'Completed testing locally?', ok: 'Yes')
+        sh 'bash ./jenkins/scripts/cleanup-containers.sh'
+      }
+    }
   }
   environment {
     DOCKER_HUB_USER = 'kannanatdocker'
